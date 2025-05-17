@@ -4,7 +4,6 @@ function Invoke-ShellcodeViaThreadHijack
 .SYNOPSIS
     Injects and executes shellcode in a hijacked thread of a remote process using SetThreadContext.
 
-.DESCRIPTION
     This method demonstrates thread hijacking, where a thread in a remote process is suspended,
     its context modified to point to injected shellcode, and then resumed. The shellcode is
     written into RWX memory allocated via VirtualAllocEx.
@@ -12,7 +11,11 @@ function Invoke-ShellcodeViaThreadHijack
     This is more stealthy than CreateRemoteThread, but is less detectable by advanced EDRs.
     Intended for educational and research use only.
 
-.NOTES
+    Notes:
+        - I tested this POC on x64 Win11.
+        - You can only create an x64 processes on an x64 host architecture.
+
+.DESCRIPTION
     Author: Silentis Vox (@SilentisVox)
     License: BSD 3-Clause
     Required Dependencies: None
