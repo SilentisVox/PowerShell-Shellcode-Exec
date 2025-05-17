@@ -4,7 +4,6 @@ function Invoke-ShellcodeViaRemoteThread
 .SYNOPSIS
     Injects and executes shellcode in a remote process using CreateRemoteThread.
 
-.DESCRIPTION
     This is a straightforward proof-of-concept demonstrating how to inject shellcode into a
     remote process by allocating memory with RWX permissions, writing shellcode, and
     spawning a thread inside the target process with CreateRemoteThread.
