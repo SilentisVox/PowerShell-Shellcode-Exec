@@ -4,7 +4,6 @@ function Invoke-ShellcodeViaProcessHollow
 .SYNOPSIS
     Executes shellcode in the context of a newly created suspended process using classic process hollowing.
 
-.DESCRIPTION
     This function demonstrates traditional process hollowing using the CreateProcess, GetThreadContext,
     ReadProcessMemory, WriteProcessMemory, and ResumeThread APIs.
 
@@ -12,7 +11,11 @@ function Invoke-ShellcodeViaProcessHollow
     the shellcode to execute when the thread resumes. This method is less detectable, but primarily
     serves educational purposes.
 
-.NOTES
+    Notes:
+        - I tested this POC on x64 Win11.
+        - You can only create an x64 processes on an x64 host architecture.
+
+.DESCRIPTION
     Author: Silentis Vox (@SilentisVox)
     License: BSD 3-Clause
     Required Dependencies: None
