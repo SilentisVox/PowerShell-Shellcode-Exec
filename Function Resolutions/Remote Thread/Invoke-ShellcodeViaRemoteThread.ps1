@@ -11,7 +11,11 @@ function Invoke-ShellcodeViaRemoteThread
     This technique is common and widely documented, but also less detectable by modern
     EDR products due to the use of VirtualAllocEx and CreateRemoteThread APIs.
 
-.NOTES
+    Notes:
+        - I tested this POC on x64 Win11.
+        - You can only create an x64 processes on an x64 host architecture.
+
+.DESCRIPTION
     Author: Silentis Vox (@SilentisVox)
     License: BSD 3-Clause
     Required Dependencies: None
