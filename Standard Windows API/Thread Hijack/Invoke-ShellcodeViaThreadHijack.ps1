@@ -11,8 +11,12 @@ function Invoke-ShellcodeViaThreadHijack
 
     This is more stealthy than CreateRemoteThread, but still detectable by advanced EDRs.
     Intended for educational and research use only.
+    
+    Notes:
+        - I tested this POC on x64 Win11.
+        - You can only create an x64 processes on an x64 host architecture.
 
-.NOTES
+.DESCRIPTION
     Author: Silentis Vox (@SilentisVox)
     License: BSD 3-Clause
     Required Dependencies: None
