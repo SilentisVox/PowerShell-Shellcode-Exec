@@ -44,3 +44,11 @@ Invoke-ShellcodeViaProcessHollow -Shellcode $Shellcode -ProcessPath "C:\Windows\
 ## **Brief Explanation**
 
 ![ghost](https://github.com/user-attachments/assets/44702081-fcb4-49ed-8c87-82e592f2c54c)
+
+### **Windows API**
+
+There are 2 ways I have covered in order to use Windows API functions. Either adding a type defintion that pulls function from a given dll, or reflectively resolving functions, and using them as such.
+
+###### Type Definition
+
+###### Reflective Resolution
