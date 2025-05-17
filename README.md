@@ -51,4 +51,32 @@ There are 2 ways I have covered in order to use Windows API functions. Either ad
 
 ###### Type Definition
 
+```powershell
+Add-Type @"
+using System;
+using System.Runtime.InteropServices;
+
+public class Kernel32
+{
+    [DllImport("kernel32.dll", SetLastError=true)]
+    public static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, uint dwProcessId);
+}
+"@
+```
+
 ###### Reflective Resolution
+
+```powershell
+$UnsafeMethodsType                  = $SystemAssembly.GetType("Microsoft.Win32.UnsafeNativeMethods")
+$NativeMethodsType                  = $SystemAssembly.GetType("Microsoft.Win32.NativeMethods")
+
+$GetModuleHandle                    = $UnsafeMethodsType.GetMethod("GetModuleHandle")
+$GetProcAddress                     = $UnsafeMethodsType.GetMethod("GetProcAddress", [Reflection.BindingFlags] "Public,Static", $null, [System.Reflection.CallingConventions]::Any, @([IntPtr], [String]), $null);
+
+$Kernel32Handle                     = $GetModuleHandle.Invoke($null, @("kernel32.dll"))
+$OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenProcess"))
+
+# Obviously setup delegate for function pointer.
+$OpenProcess                        = Get-Delegate $OpenProcessAddress @([Int], [Bool], [Int]) ([IntPtr])
+```
+
