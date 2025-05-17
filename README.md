@@ -99,5 +99,3 @@ Thread Hijacking involves taking control of an existing thread in a process. Beg
 
 #### **Process Hollow**
 Process Hollowing is a stealthy technique to replace the contents of a legitimate process with malicious code. First, spawn a suspended process using `CreateProcess` with the `CREATE_SUSPENDED` flag. Unmap its memory space using `NtUnmapViewOfSection`, then allocate new memory with `VirtualAllocEx`. Write the payload into this space with `WriteProcessMemory`, update the thread context to the new entry point using `SetThreadContext`, and resume execution with `ResumeThread`.
-
-[![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
