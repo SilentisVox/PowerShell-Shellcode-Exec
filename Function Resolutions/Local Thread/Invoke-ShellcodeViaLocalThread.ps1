@@ -207,7 +207,7 @@ function Invoke-ShellcodeViaLocalThread
 
     # Wait until shellcode executed successfully.
 
-    $INFINITE                           = [UInt32]::MaxValue
+    $INFINITE                           = [Int]::MaxValue
 
     $WaitObject                         = $WaitForSingleObject.Invoke($ThreadHandle, $INFINITE)
 
