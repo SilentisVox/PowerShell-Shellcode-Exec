@@ -40,3 +40,7 @@ Invoke-ShellcodeViaRemoteThread -Shellcode $Shellcode -TargetPID 1234 -Verbose
 Invoke-ShellcodeViaThreadHijack -Shellcode $Shellcode -TargetPID 1234 -TargetTID 5678 -Verbose
 Invoke-ShellcodeViaProcessHollow -Shellcode $Shellcode -ProcessPath "C:\Windows\System32\svchost.exe" -Verbose
 ```
+
+## **Brief Explanation**
+
+![Ghost](assets/Ghost.jpg)
